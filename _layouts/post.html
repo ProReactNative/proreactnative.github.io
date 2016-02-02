@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+<article class="post">
+  <h1>{{ page.title }}</h1>
+
+  <div class="entry">
+    {{ content }}
+  </div>
+
+  <div class="date">
+    Written on {{ page.date | date: "%B %e, %Y" }}
+  </div>
+
+<!-- Begin CTA -->
+
+<hr />
+
+<div id="cta" class="cta">
+        <img class="cta-pic" width="100" height="100" src="http://s3.amazonaws.com/new.davidykay.com/img/wns-aug-2015-cropped.jpg" />
+
+        <p class="cta-bio">
+            <span class="cta-name">David Kay</span> writes about keeping you productive in React Native.
+            Over the years, he's developed over a dozen successful native apps.
+            If you found this article helpful,
+            <a href="/i-love-react-native">
+                join his weekly newsletter.
+            </a>
+        </p>
+
+</div>
+<hr />
+
+<!-- End CTA -->
+
+  {% include disqus.html %}
+
+
+
+  <script src="//load.sumome.com/" data-sumo-site-id="bcebe78c756aac7b4917b111f9a0891038297f8c5d625dbd06946e92bc25d2dd" async="async"></script>
+</article>
