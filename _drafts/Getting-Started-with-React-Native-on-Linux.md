@@ -18,7 +18,6 @@ Linux is the best thing since sliced bread, but the docs on the React Native sit
 ## Proof of Understanding 3
 
 
-
 ## Simple Solution
 
 ### Installing everything
