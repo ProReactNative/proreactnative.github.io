@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Getting Started with React Native on Windows
+title: Ebomb Template
 ---
 
 ## Proof of Understanding 1
