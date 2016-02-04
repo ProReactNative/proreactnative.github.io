@@ -3,6 +3,12 @@ layout: post
 title: Getting Started with React Native on Windows
 ---
 
+In this conversation on facebook This
+
+A developer from Italy asked how to develop i
+
+https://www.facebook.com/groups/react.native.community/permalink/719448644857383/
+
 ## Proof of Understanding 1
 ## Proof of Understanding 2
 ## Proof of Understanding 3
@@ -17,6 +23,22 @@ The main downside is that you'd have to share keyboard & mouse with the Mac (a l
 
 Does this make sense so far? 
 
-Would it be helpful if I wrote this up for you in the form of a blog post?
-
 ## Simple Solution
+
+* Make iOS app able to set your IP address
+* Build the iOS code on an iPhone
+* Write your JS code 
+
+### Go into your iOS Code and add a setting for setting your IP address
+### Build the iOS code on an iPhone
+### Run the packager on Linux
+### Write your code
+### Smile
+
+
+## Bonus
+
+As a bonus, I'll show you how
+
+### Set up buddybuild.com with continuous integration
+### Share your Mouse and Keyboard between both environments using Synergy
