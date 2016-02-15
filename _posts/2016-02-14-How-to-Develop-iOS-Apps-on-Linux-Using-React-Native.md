@@ -376,7 +376,7 @@ _NOTE_: This section is shorter than I intended because I ran short on time. Do 
 
 ## Thanks
 
-Thanks to TieroTiero Donde Stas, a developer from Italy who was the [inspiration](https://www.facebook.com/groups/react.native.community/permalink/719448644857383/?comment_id=719517778183803&comment_tracking=%7B%22tn%22%3A%22R2%22%7D) for this article. I ended up answering the question in a slightly different way than he asked it, but I think this solution has more broad use. Chime in if you think otherwise.
+Thanks to Marco Argentieri, a developer from Italy who was the [inspiration](https://www.facebook.com/groups/react.native.community/permalink/719448644857383/?comment_id=719517778183803&comment_tracking=%7B%22tn%22%3A%22R2%22%7D) for this article. I ended up answering the question in a slightly different way than he asked it, but I think this solution has more broad use. Chime in if you think otherwise.
 
 And thank YOU for reading all of this!
 
