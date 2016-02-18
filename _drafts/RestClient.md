@@ -3,102 +3,144 @@ layout: post
 title: Making REST/HTTP Calls in React Native
 ---
 
-## Proof of Understanding 1
+Ah, making HTTP calls, one of the bread & butter operations in any mobile app.
 
-Ah, making HTTP calls. 
+Surely React Native can handle this without breaking a sweat, right?
 
-One of the bread & butter operations in any mobile app.
+Yes and no. The functionality is there, but it's likely not what you're used to.
 
-## Proof of Understanding 2
+If you're coming from iOS, AFNetworking is nowhere to be found, Android devs will miss Retrofit, and web devs will be confused at the absence of XMLHTTPRequest.
 
-And yet, the network stack doesn't look anything like in iOS, Android, or, the standard XMLHTTPRequest you may know from the web.
+Instead, what's present instead is the `fetch` API. And you have to go digging for it to see how it actually works.
 
-## Proof of Understanding 3
+My hope with this post is to get you up and running with a few key snippets of code that you need to make HTTP calls.
 
-What's present instead is the `fetch` API.
-
-Let's get you up and running with the key operations that you need to make HTTP calls.
+Let's get started!
 
 ## Simple Solution
 
 
-### GET
+### Hello HTTP
 
+First, let's start you off with the "Hello World" of HTTP calls
 
+```js
+fetch("https://api.github.com");
+```
+
+Technically, though, `fetch()` returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), so in order to read the response from the server, you'll need to wait for the promise to complete. 
+
+The simplest way to do so is to use `await`, a concept borrowed from C#. 
+
+`await` essentially tells your thread sit around and wait for the promise to complete.
+
+Here's an example:
+
+```js
+async function helloHttp() {
+    let response = await fetch("https://api.github.com");
+    console.log(response);
+}
+```
+
+Note that this function must be marked as `async` because we are `await`ing the response. 
 
 ### GETting JSON
         
+In order to fetch JSON content, you'll want to do the following:
+		
 ```js
-headers = {
-    'Accept': 'application/json',
-    'Content-Type': 'application/jnd.guesswut.v1',
-};
+async function helloJSON() {
+    let headers = {
+        'Accept': 'application/json',
+    };
 
+    let request = {
+        method: 'GET',
+        headers: headers,
+    };
 
-var request = {
-    method: method,
-    headers: headers,
-};
-
-var url = "http://requestb.in/1dg4qob1",
-        
-fetch(url, request);
+    let url = "https://api.github.com";
+            
+    // TODO: see if we can to response.json
+    let response = await fetch(url, request);
+    let parsedBody = JSON.parse(response._bodyInit);
+    console.log(parsedBody);
+}
 
 ```
 
 ### POST
 
-### POSTing JSON 
+#### POSTing JSON 
+
+Now that you've seen GETing JSON, let's look at how to POST it:
 
 ```js
-headers = {
-    'Accept': 'application/json',
-    'Content-Type': 'application/jnd.guesswut.v1',
-};
+async function postJSON() {
+    let headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+    };
 
+    let bodyObject = {
+        "description": "the description for this gist",
+        "public": true,
+        "files": {
+            "file1.txt": {
+                "content": "String file contents"
+            }
+        }
+    };
 
-var request = {
-    method: method,
-    headers: headers,
-};
+    let request = {
+        method: method,
+        headers: headers,
+        body: JSON.stringify(bodyObject);
+    };
 
-var url = "http://requestb.in/1dg4qob1",
-        
-fetch(url, request);
-
+    var url = "http://requestb.in/1dg4qob1",
+            
+    fetch(url, request);
+}
 ```
 
-### POSTing Form-encoded
+#### POSTing Form-encoded
+
+And for those services that expect form-encoded data, you'll want to use the [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) object.
 
 ```js
-headers = {
-    'Accept': 'application/json',
-    'Content-Type': 'application/jnd.guesswut.v1',
-};
+async function postFormEncoded() {
+    headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+    };
 
+    let params = {
+        username: "DavidYKay",
+        password: "secret"
+    };
 
-var params = {
+    var formData = new FormData();
+    for (var k in params) {
+        formData.append(k, params[k]);
+    }
 
-};
+    let request = {
+        method: method,
+        headers: headers,
+        body: formData
+    };
 
-var formData = new FormData();
-for (var k in params) {
-    formData.append(k, params[k]);
+    var url = "http://requestb.in/1dg4qob1",
+            
+    fetch(url, request);
 }
 
-var request = {
-    method: method,
-    headers: headers,
-    body: formData
-};
-
-var url = "http://requestb.in/1dg4qob1",
-        
-fetch(url, request);
-
 ```
 
+## Fin
 
-## CTA
+Right on! Hopefully you learned a thing or two about getting up and running with making basic HTTP calls in React Native.
 
-Don't miss my next post. Sign up using the box below:
+Was this helpful? If so, don't miss my next post and sign up using the box below:
