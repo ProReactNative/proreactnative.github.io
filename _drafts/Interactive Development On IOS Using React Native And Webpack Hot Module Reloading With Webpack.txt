@@ -1,0 +1,53 @@
+Hot Module Reloading 
+
+Interactive development is hella cool. 
+
+The ability to touch your code and see the changes live is invaluable. Think about all the dead time spent in your development loop. 
+
+Ever see Bret Victor, Inventing on Principle? 
+
+Check it out. 
+
+How about figwheel in Clojurescript? 
+
+Or from time immemorial, There's Smalltalk. 
+
+Lately, the Javascript community has been attempting to reproduce this. Their latest effort is Hot Module Reloading. 
+
+It works damn well. 
+
+Here's a video:
+
+We're going to learn how to get it running in react native! 
+
+## Prerequisites 
+
+I'm assuming you already have a project running. 
+
+Ifnot you can create one from scratch or skip ahead to the sample project. 
+
+## Installing hot module replacement 
+
+First, we'll need to open up our package. json file. 
+
+Inside of it, we'll need to add a line for hot module replacement. 
+
+Afterwards, we need to verify that our app can launch with hot module replacement. 
+
+Follow these steps to do so. 
+
+## Changing XCode configuration 
+
+Now that we are using hot module replacement, we will need to adjust our XCode configuration to target Webpack and hot module replacement. 
+
+## Interactive Development 
+
+Now that we've got the app up and running, 
+
+Run the project in XCode 
+
+2. Run the hot loader 
+
+## CTA 
+
+Was this helpful? Sign up for my newsletter using the box below:
